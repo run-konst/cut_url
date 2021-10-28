@@ -6,35 +6,15 @@
 		header('Location: ' . get_url('profile.php'));
 	}
 
-	$error = '';
-	if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-		$error = $_SESSION['error'];
-		$_SESSION['error'] = '';
-	}
-
-	$success = '';
-	if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
-		$success = $_SESSION['success'];
-		$_SESSION['success'] = '';
-	}
+	$error = get_messages('error');
+	$success = get_messages('success');
 
 	if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) && !empty($_POST['pass'])) {
 		login($_POST);
 	}
 ?>
 	<main class="container">
-		<?php if (!empty($success)) : ?>
-		<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-			<?php echo $success; ?>
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
-		<?php endif; ?>
-		<?php if (!empty($error)) : ?>
-		<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-			<?php echo $error; ?>
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
-		<?php endif; ?>
+		<?php include "includes/alerts.php"; ?>
 		<div class="row mt-5">
 			<div class="col">
 				<h2 class="text-center">Вход в личный кабинет</h2>

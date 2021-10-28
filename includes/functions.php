@@ -58,6 +58,15 @@ function add_user($login, $pass) {
     return db_query("INSERT INTO `users` (`id`, `login`, `pass`) VALUES (NULL, '$login', '$password');", true);
 }
 
+function get_messages($str) {
+    $$str = '';
+	if (isset($_SESSION[$str]) && !empty($_SESSION[$str])) {
+		$$str = $_SESSION[$str];
+		$_SESSION[$str] = '';
+	}
+    return $$str;
+}
+
 function register_user($auth_data) {
 
     if(empty($auth_data) || !isset($auth_data['login']) || empty($auth_data['login']) || !isset($auth_data['pass']) || !isset($auth_data['pass2'])) return false;
@@ -102,6 +111,7 @@ function login($auth_data) {
     if (password_verify($auth_data['pass'], $user['pass'])) {
         $_SESSION['user'] = $user;
         header('Location: ' . get_url('profile.php'));
+        $_SESSION['success'] = 'Здрасте!';
         die;
     } else {
         $_SESSION['error'] = 'Пароль неверен!';
