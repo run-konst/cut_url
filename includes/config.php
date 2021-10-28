@@ -6,4 +6,8 @@
     const DB_NAME = 'cut_url';
     const DB_USER = 'root';
     const DB_PASS = '';
+
+    session_start();
+    
+	$logged = isset($_SESSION['user']['id']);
     

@@ -2,9 +2,9 @@
 	include "includes/functions.php";
 
 	//$users = db_query("SELECT * FROM `users`;") -> fetchAll();
-	$users_count = db_query("SELECT COUNT(id) FROM `users`;") -> fetchColumn();
-	$links_count = db_query("SELECT COUNT(id) FROM `links`;") -> fetchColumn();
-	$views_count = db_query("SELECT SUM(views) FROM `links`;") -> fetchColumn();
+	$users_count = get_user_count();
+	$links_count = get_links_count();
+	$views_count = get_views_count();
 ?>
 <!doctype html>
 <html lang="ru">
@@ -29,11 +29,22 @@
 							<li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="<?php echo get_url(); ?>">Главная</a>
 							</li>
+							<?php if($logged) : ?>
+								<li class="nav-item">
+									<a class="nav-link active" href="<?php echo get_url('profile.php'); ?>">Профиль</a>
+								</li>
+							<?php endif; ?>
 						</ul>
 						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-							<li class="nav-item">
-								<a href="<?php echo get_url('login.php'); ?>" class="btn btn-primary">Войти</a>
-							</li>
+							<?php if(!$logged) : ?>
+								<li class="nav-item">
+									<a href="<?php echo get_url('login.php'); ?>" class="btn btn-primary">Войти</a>
+								</li>
+							<?php else : ?>
+								<li class="nav-item">
+									<a href="<?php echo get_url('logout.php'); ?>" class="btn btn-primary">Выйти</a>
+								</li>
+							<?php endif; ?>
 						</ul>
 					</div>
 				</div>
