@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 28 2021 г., 17:05
+-- Время создания: Окт 29 2021 г., 20:00
 -- Версия сервера: 5.7.33
 -- Версия PHP: 7.4.21
 
@@ -40,9 +40,12 @@ CREATE TABLE `links` (
 --
 
 INSERT INTO `links` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES
-(1, 1, 'https://yandex.ru', 'asdasd', 2),
-(2, 1, 'https://yandex.ru', 'asd', 42),
-(3, 2, 'https://google.com', 'qwee', 23);
+(11, 9, 'gdsfgdsgsd', '3m44dh', 0),
+(12, 9, 'dfzcbvcx', 'aimf4q', 0),
+(13, 9, 'фывфв', 'p6av8v', 0),
+(17, 7, 'кенрыар', 'bezscx', 0),
+(18, 5, 'https://yandex.ru/', '5ncbqj', 0),
+(19, 5, 'https://vk.com/', 'k2bw3s', 1);
 
 -- --------------------------------------------------------
 
@@ -65,7 +68,10 @@ INSERT INTO `users` (`id`, `login`, `pass`) VALUES
 (6, 'qwe', '$2y$10$MGF509AcI8aQNnqDSsETGeM8EpF.P8Qrn2O/zKXtCj/ClLt6W7AQi'),
 (7, 'zxc', '$2y$10$MJGwtLIkFY1Oc3Z87RRO0.kZ5dF/iKUKmSFkp5WGvZWxPmyq3nLki'),
 (8, 'vbn', '$2y$10$B3nPZdlBVhgsNpMQVwiqRudBhqFXCiytGxW5tbfEucqwiVng4PXES'),
-(9, '123', '$2y$10$ImDdlFxTOXNopWZXBLmx1ujj5idUTn/ND729qO5XJtreWG1kG3BJe');
+(9, '123', '$2y$10$ImDdlFxTOXNopWZXBLmx1ujj5idUTn/ND729qO5XJtreWG1kG3BJe'),
+(10, 'tyu', '$2y$10$0U9tqr5L2ryq3hJL.VLyOu7JzSCX0oINy20e.SWXW6pi3NiM1TAaW'),
+(11, 'sdf', '$2y$10$65m2A9Zmkr7Y/rggSy1RIuJ5KefC3a1AdW5md761j/JPb5wyZ6Jhi'),
+(12, 'xcv', '$2y$10$7KTvEb1604HzpM8jYiEiYeV.B8MJiPk0LNpcE9wj/ry/1P5WbOkyi');
 
 --
 -- Индексы сохранённых таблиц
@@ -93,13 +99,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -24,8 +24,8 @@
 								<a class="nav-link active" aria-current="page" href="<?php echo get_url(); ?>">Главная</a>
 							</li>
 						</ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="text" placeholder="Ссылка" aria-label="Ссылка">
+                        <form class="d-flex" action="includes/add.php" method="POST">
+                            <input name="link" class="form-control me-2" type="text" placeholder="Ссылка" aria-label="Ссылка">
                             <button class="btn btn-success" type="submit"><i class="bi bi-plus-lg"></i></button>
                         </form>
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

@@ -1,6 +1,6 @@
 <?php
 
-include "includes/config.php";
+include "config.php";
 
 function get_url($page = '') {
     return HOST . "/$page";
@@ -120,4 +120,29 @@ function login($auth_data) {
     }
 
     return true;
+}
+
+function get_user_links($user_id) {
+    if (empty($user_id)) return [];
+    return db_query("SELECT * FROM `links` WHERE `user_id` = $user_id;")->fetchAll();
+}
+
+function delete_link($id) {
+    if (empty($id)) return false;
+    return db_query("DELETE FROM `links` WHERE `id` = $id;", true);
+}
+
+function generate_short_link() {
+    $link = '';
+    for ($i = 0; $i < 6; $i++) {
+        $link .= substr(str_shuffle(CHARS), 0, 1);
+    }
+    return $link;
+}
+
+function add_link($link) {
+    $user = $_SESSION['user']['id'];
+    $short_link = generate_short_link();
+    if (empty($link)) return false;
+    return db_query("INSERT INTO `links` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES (NULL, '$user', '$link', '$short_link', '0');", true);
 }

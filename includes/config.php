@@ -6,6 +6,7 @@
     const DB_NAME = 'cut_url';
     const DB_USER = 'root';
     const DB_PASS = '';
+    const CHARS = 'qwertyuiopasdfghjklzxcvbnm1234567890-';
 
     session_start();
     
