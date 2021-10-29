@@ -146,3 +146,7 @@ function add_link($link) {
     if (empty($link)) return false;
     return db_query("INSERT INTO `links` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES (NULL, '$user', '$link', '$short_link', '0');", true);
 }
+
+function edit_link($id, $link) {
+    return db_query("UPDATE `links` SET `long_link` = '$link' WHERE `id` = '$id';", true);
+}

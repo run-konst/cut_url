@@ -1,5 +1,5 @@
 <?php
-	include "includes/functions.php";
+	include "functions.php";
 
 	//$users = db_query("SELECT * FROM `users`;") -> fetchAll();
 	$users_count = get_user_count();
